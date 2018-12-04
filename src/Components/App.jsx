@@ -23,7 +23,7 @@ class App extends Component {
   handleClick(e) {
     this.setState({
       hasLoaded: true
-    });
+    }); //onClick set hasLoaded to true
   }
 
   //   componentDidMount() {
@@ -47,7 +47,7 @@ class App extends Component {
         <>
           <Greeting name="Patrick" />
         </>
-      );
+      ); //on button click render Greeting
 
     return (
       <>
