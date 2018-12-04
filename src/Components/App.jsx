@@ -15,7 +15,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      inputText: "This is an input",
+      inputText: "Type stuff here!",
       hasLoaded: false
     };
     this.handleClick = this.handleClick.bind(this);
@@ -24,6 +24,10 @@ class App extends Component {
     this.setState({
       hasLoaded: true
     }); //onClick set hasLoaded to true
+  }
+
+  handleInputChange(e) {
+    this.setState({ inputText: e.target.value });
   }
 
   //   componentDidMount() {
@@ -51,7 +55,13 @@ class App extends Component {
 
     return (
       <>
-        <input type="text" placeholder={this.state.inputText} />
+        <input
+          type="text"
+          value={this.state.inputText}
+          placeholder={this.state.inputText}
+          onChange={e => this.handleInputChange(e)}
+        />
+        <h1>{this.state.inputText}</h1>
         {clickButton}
       </>
     );
