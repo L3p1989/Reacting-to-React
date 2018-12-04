@@ -26,12 +26,33 @@ class App extends Component {
     });
   }
 
+  //   componentDidMount() {
+  //     this.setState({
+  //       hasLoaded: true
+  //     });
+  //   }//this will make it to where the h1 loading and button will never appear because they are dependant on hasLoaded being false. this sets it to true once the `App` is mounted from virt DOM to real DOM
+
   render() {
+    let clickButton;
+
+    if (this.state.hasLoaded === false) {
+      clickButton = (
+        <>
+          <h1>...Loading</h1>
+          <button onClick={this.handleClick}>Click Me!</button>
+        </>
+      );
+    } else
+      clickButton = (
+        <>
+          <Greeting name="Patrick" />
+        </>
+      );
+
     return (
       <>
         <input type="text" placeholder={this.state.inputText} />
-        <button onClick={this.handleClick}>Button</button>
-        <Greeting name="Patrick" />
+        {clickButton}
       </>
     );
   }
